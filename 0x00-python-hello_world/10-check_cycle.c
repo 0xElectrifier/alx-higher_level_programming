@@ -8,16 +8,15 @@
  */
 int check_cycle(listint_t *list)
 {
-	listint_t **list_p, *copy;
+	listint_t *copy;
 
 	if (list == NULL)
 		return (0);
 
-	list_p = &list;
 	copy = list->next;
 	while (copy != NULL)
 	{
-		if (*list_p == copy)
+		if (list == copy)
 			return (1);
 
 		copy = copy->next;
