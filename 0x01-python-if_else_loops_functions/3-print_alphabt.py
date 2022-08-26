@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-# Author - Tolulope Fakunle
+"""Funvtion that prints all ASCII lowercase alphabets except q"""
+
 for letter in range(97, 123):
-    if chr(letter) != 'q' and chr(letter) != 'e':
-        print("{}".format(chr(letter)), end="")
+    if letter == 101 or letter == 113:
+        continue
+    print("{}".format(chr(letter)), end="")
