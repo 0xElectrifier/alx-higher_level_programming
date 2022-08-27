@@ -9,4 +9,3 @@ for first_digit in range(0, 10):
                 print("")
             else:
                 print(", ", end="")
-
