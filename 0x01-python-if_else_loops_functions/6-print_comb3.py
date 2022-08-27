@@ -1,9 +1,12 @@
 #!/usr/bin/python3
-# Author - Tolulope Fakunle
+"""Program that prints all possible different combinations of two digits"""
 
-for digit1 in range(0, 10):
-    for digit2 in range(digit1 + 1, 10):
-        if digit1 == 8 and digit2 == 9:
-            print("{}{}".format(digit1, digit2))
-        else:
-            print("{}{}".format(digit1, digit2), end=", ")
+for first_digit in range(0, 10):
+    for second_digit in range(0, 10):
+        if second_digit > first_digit:
+            print("{}{}".format(first_digit, second_digit), end="")
+            if (first_digit == 8) and (second_digit == 9):
+                print("")
+            else:
+                print(", ", end="")
+
