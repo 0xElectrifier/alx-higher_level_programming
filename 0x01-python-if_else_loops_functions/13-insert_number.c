@@ -38,14 +38,16 @@ listint_t *insert_node(listint_t **head, int number)
 		return (NULL);
 
 	new->n = number;
-	new->next = copy->next;
 	if ((*head == NULL) || (number < (*head)->n))
 	{
-		new->next = (*head)->next;
+		new->next = *head;
 		*head = new;
 	}
 	else
+	{
+		new->next = copy->next;
 		copy->next = new;
+	}
 
 	return (new);
 }
