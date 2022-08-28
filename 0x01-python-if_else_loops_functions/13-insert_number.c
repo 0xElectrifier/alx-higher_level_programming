@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <stdlib.h>
 
 /**
  * insert_node - function that inserts a number into a sorted singly
@@ -10,7 +11,7 @@
  */
 listint_t *insert_node(listint_t **head, int number)
 {
-	listint_t copy;
+	listint_t *copy, *new;
 
 	copy = *head;
 	while (copy != NULL)
@@ -25,7 +26,7 @@ listint_t *insert_node(listint_t **head, int number)
 		return (NULL);
 
 	new->n = number;
-	new->next = copy-next;
+	new->next = copy->next;
 	copy->next = new;
 
 	return (new);
