@@ -2,16 +2,6 @@
 #include <stdlib.h>
 
 /**
- * not_null - function that checks if list or list->n is null
- * @head: pointer to list
- *
- * Return: 1 if true otherwise, 0
- */
-int not_null(listint_t *head)
-{
-	return (head && head->n);
-}
-/**
  * insert_node - function that inserts a number into a sorted singly
  * linked list
  * @head: pointer of pointer to head of list
@@ -26,6 +16,9 @@ listint_t *insert_node(listint_t **head, int number)
 	if (head == NULL)
 		return (NULL);
 
+	new = malloc(sizeof(listint_t));
+	if (new == NULL)
+		return (NULL);
 	copy = *head;
 	while ((copy) && (number >= copy->n))
 	{
