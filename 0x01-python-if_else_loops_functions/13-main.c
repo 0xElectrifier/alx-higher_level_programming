@@ -10,9 +10,10 @@
  */
 int main(void)
 {
-    listint_t *head;
+    listint_t *head, *ret;
 
     head = NULL;
+
     add_nodeint_end(&head, 0);
     add_nodeint_end(&head, 1);
     add_nodeint_end(&head, 2);
@@ -25,7 +26,9 @@ int main(void)
 
     printf("-----------------\n");
 
-    insert_node(&head, 27);
+    ret = insert_node(&head, 102);
+    if (ret == NULL)
+	    printf("NULL");
 
     print_listint(head);
 
