@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
-if __name__ == "__main__":
-    """Prints #pythoniscool using sys module"""
-    from sys import stdout
-
-    stdout.write("#pythoniscool\n")
+"""Prints #pythoniscool using sys module"""
+os = __import__("os")
+write = os.write
+write(1, "Hello World\n".encode("UTF-8"))
