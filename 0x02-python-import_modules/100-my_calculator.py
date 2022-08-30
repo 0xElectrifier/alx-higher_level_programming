@@ -14,7 +14,7 @@ if __name__ == "__main__":
     operators = "+-*/"
     for c in operators:
         if c == argv[2]:
-            break;
+            break
     else:
         print("Unknown operator. Available operators: +, -, * and /")
         sys.exit(1)
