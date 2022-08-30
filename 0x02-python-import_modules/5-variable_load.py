@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 if __name__ == "__main__":
-    """Print the value of variable a from variable_load_5."""
-    from variable_load_5 import a
-
+    """Imports and prints the variable 'a' from variable_load_5.py"""
+    from variable_load_5 import a as a
     print(a)
