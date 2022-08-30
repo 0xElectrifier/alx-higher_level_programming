@@ -2,5 +2,4 @@
 
 """Prints #pythoniscool using sys module"""
 os = __import__("os")
-write = os.write
-write(1, "Hello World\n".encode("UTF-8"))
+os.write(1, "Hello World\n".encode("UTF-8"))
