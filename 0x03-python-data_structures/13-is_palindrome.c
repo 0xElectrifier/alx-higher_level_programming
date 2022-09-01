@@ -48,13 +48,11 @@ int is_palindrome(listint_t **head)
 			j++;
 		}
 		if (list_bck && (list_fwd->n != list_bck->n))
-			break;
+			return (0);
 		list_fwd = list_fwd->next;
 		back_idx--;
 		i++;
 	}
-	if (i != len / 2)
-		return (0);
 
 	return (1);
 }
