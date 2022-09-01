@@ -54,8 +54,9 @@ int is_palindrome(listint_t **head)
 	listint_t *firstHalf_ptr, *secondHalf_ptr;
 	int res;
 
-	if (!head || !*head)
+	if ((head == NULL) || (*head == NULL))
 		return (1);
+
 	fast_ptr = prev_of_slow_ptr = slow_ptr = firstHalf_ptr = *head;
 	while (fast_ptr != NULL && fast_ptr->next != NULL)
 	{
