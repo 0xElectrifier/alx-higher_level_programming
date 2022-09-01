@@ -31,7 +31,7 @@ int is_palindrome(listint_t **head)
 	listint_t *list_fwd, *list_bck;
 
 	if (!head || !*head)
-		return (0);
+		return (1);
 
 	list_fwd = *head;
 	len = list_len(*head);
