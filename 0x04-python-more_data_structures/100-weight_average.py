@@ -2,7 +2,7 @@
 
 def weight_average(my_list=[]):
     """Returns the weighted average of all integers tuple"""
-    if not list:
+    if not my_list:
         return (0)
 
     weight_score = 0
