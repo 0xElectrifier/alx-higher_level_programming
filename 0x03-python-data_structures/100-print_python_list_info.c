@@ -18,7 +18,7 @@ void print_python_list_info(PyObject *p)
 	if (!PyList_Check(p))
 		return;
 
-	bj = (PyListObject *)p;
+	obj = (PyListObject *)p;
 	list_len = PyList_Size(p);
 
 	printf("[*] Size of the Python List = %d\n", list_len);
