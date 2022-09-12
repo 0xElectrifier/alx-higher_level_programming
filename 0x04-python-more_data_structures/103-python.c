@@ -25,7 +25,7 @@ void print_python_list(PyObject *p)
 	printf("[*] Allocated = %li\n", obj->allocated);
 	for (i = 0; i < list_size; i++)
 	{
-		printf("Element %li: \n", i);
+		printf("Element %li: ", i);
 		printf("%s\n", ((obj->ob_item[i])->ob_type)->tp_name);
 	}
 }
