@@ -56,10 +56,10 @@ void print_python_bytes(PyObject *p)
 	printf("  size: %d\n", str_len);
 	printf("  trying string: %s\n", str);
 	printf("  first %d bytes: ", lim);
-	for (i = 0; i < lim; i++)
+	for (i = 0; i <= lim; i++)
 	{
 		printf("%02x", str[i]);
-		if (i != (lim - 1))
+		if (i != (lim))
 			printf(" ");
 		else
 			printf("\n");
