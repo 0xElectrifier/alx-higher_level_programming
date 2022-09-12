@@ -63,7 +63,7 @@ void print_python_bytes(PyObject *p)
 		if (str[i] >= 0)
 			printf(" %02x", str[i]);
 		else
-			printf(" %02x", 258 + str[i]);
+			printf(" %02x", 256 + str[i]);
 	}
 	printf("\n");
 }
