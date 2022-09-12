@@ -40,9 +40,10 @@ void print_python_bytes(PyObject *p)
 {
 	char *str;
 	int str_len, lim, i;
+	PyObject *obj;
 
-	str = PyUnicode_AsEncodedString(p,"utf-8","strict");
-	str = PyBytes_AsString(str);
+	obj = PyUnicode_AsEncodedString(p,"utf-8","strict");
+	str = PyBytes_AsString(obj);
 	str_len = strlen(str);
 	lim = str_len;
 	if (str_len > 10)
