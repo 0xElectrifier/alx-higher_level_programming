@@ -25,7 +25,7 @@ void print_python_list_info(PyObject *p)
 	for (i = 0; i < list_len; i++)
 	{
 		printf("Element %d: ", i);
-		printf("%s\n", ((obj->item[i])->ob_type)->tp_name);
+		printf("%s\n", ((obj->ob_item[i])->ob_type)->tp_name);
 	}
 }
 
