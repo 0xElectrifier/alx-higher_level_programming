@@ -39,17 +39,7 @@ void print_python_list(PyObject *p)
 void print_python_bytes(PyObject *p)
 {
 	char *str;
-	int str_len, lim, i;
-	PyObject *obj;
-
-	obj = PyUnicode_FromEncodedObject(p, "utf-8", "strict");
-/*
-	obj = PyUnicode_AsEncodedString(p,"utf-8","strict");
-*/	str = PyBytes_AsString(obj);
-	str_len = strlen(str);
-	lim = str_len;
-	if (str_len > 10)
-		lim = 10;
+	long int size, lim, i;
 
 	printf("[.] bytes object info\n");
 	if(!PyBytes_Check(p))
@@ -57,6 +47,14 @@ void print_python_bytes(PyObject *p)
 		printf("  [ERROR] Invalid Bytes Object\n");
 		return;
 	}
+
+	str = PyBytes_AsString(p);
+	size = ((PyVarObject *)(p))->ob_size;
+	if (size > 10)
+		lim = 10;
+	else
+		lim = size + 1;
+
 	printf("  size: %d\n", str_len);
 	printf("  trying string: %s\n", str);
 	printf("  first %d bytes: ", lim);
