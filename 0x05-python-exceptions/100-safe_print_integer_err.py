@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-
 from os import write
+
+
 def safe_print_integer_err(value):
     """Prints an integer
 
