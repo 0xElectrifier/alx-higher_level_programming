@@ -29,7 +29,6 @@ void print_python_bytes(PyObject *p)
 {
 	long int i, size, lim;
 	char *str;
-	PyObject *obj;
 
 	printf("[.] bytes object info\n");
 	if (!PyBytes_Check(p))
@@ -41,9 +40,10 @@ void print_python_bytes(PyObject *p)
 	lim = size;
 	if (size > 10)
 		lim = 10;
+	else
+		lim += 1;
 
-	obj = PyUnicode_FromEncodedObject(p, "utf-8", "strict");
-	str = ((PyBytesObject *)(obj))->ob_sval;
+	str = ((PyBytesObject *)(p))->ob_sval;
 	printf("  size: %ld\n", size);
 	printf("  trying string: %s\n", str);
 	printf("  first %ld bytes:", size);
