@@ -9,8 +9,6 @@
  */
 void print_python_float(PyObject *p)
 {
-	PyFloatObject *value;
-
 	printf("[.] float object info\n");
 	if (!PyFloat_Check(p))
 	{
@@ -29,7 +27,9 @@ void print_python_float(PyObject *p)
  */
 void print_python_bytes(PyObject *p)
 {
-	long int i, len, lim;
+	long int i, size, lim;
+	char *str;
+	PyObject *obj;
 
 	printf("[.] bytes object info\n");
 	if (!PyBytes_Check(p))
@@ -37,16 +37,16 @@ void print_python_bytes(PyObject *p)
 		printf("  [ERROR] Invalid Float Object\n");
 		return;
 	}
-	len = PyBytes_Size(p);
-	lim = len;
+	size = PyBytes_Size(p);
+	lim = size;
 	if (len > 10)
 		lim = 10;
 
 	obj = PyUnicode_FromEncodedObject(p, "utf-8", "strict");
 	str = ((PyBytesObject *)(obj))->ob_sval;
-	printf("  size: %ld\n", len);
+	printf("  size: %ld\n", size);
 	printf("  trying string: %s\n", str);
-	printf("  first %ld bytes:");
+	printf("  first %ld bytes:", size);
 	for (i = 0; i < lim; i++)
 	{
 		printf(" %02x", str[i]);
@@ -73,7 +73,7 @@ void print_python_list(PyObject *p)
 		return;
 	}
 	list = ((PyListObject *)(p));
-	len = p->ob_size;
+	len = ((PyVarObject *)(p))->ob_size;
 	alloc = list->allocated;
 	printf("[*] Size of the Python List = %ld\n", len);
 	printf("[*] Allocated = %ld\n", alloc);
