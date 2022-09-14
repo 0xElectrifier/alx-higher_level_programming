@@ -1,4 +1,4 @@
-#!usr/bin/pyhon3
+#!/usr/bin/pyhon3
 from os import write
 
 
