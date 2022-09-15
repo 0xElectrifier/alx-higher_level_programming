@@ -8,6 +8,9 @@
  */
 void print_python_float(PyObject *p)
 {
+	double num;
+	char *str;
+
 	setbuf(stdout, NULL);
 	printf("[.] float object info\n");
 	if (!PyFloat_Check(p))
@@ -16,7 +19,9 @@ void print_python_float(PyObject *p)
 		return;
 	}
 
-	printf("  value: %f\n", ((PyFloatObject *)(p))->ob_fval);
+	num = ((PyFloatObject *)(p))->ob_fval;
+	str = PyOs_double_to_string(num, 'r', 0, Py_DTSF_ADD_DOT_0, NULL);
+	printf("  value: %s\n", str);
 }
 
 /**
