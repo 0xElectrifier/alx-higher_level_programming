@@ -24,7 +24,7 @@ void print_python_bytes(PyObject *p)
 
 	str = PyBytes_AsString(p);
 	size = ((PyVarObject *)(p))->ob_size;
-	if (size > 10)
+	if (size >= 10)
 		lim = 10;
 	else
 		lim = size + 1;

@@ -46,7 +46,7 @@ void print_python_bytes(PyObject *p)
 	}
 	size = PyBytes_Size(p);
 	lim = size;
-	if (size > 10)
+	if (size >= 10)
 		lim = 10;
 	else
 		lim += 1;
