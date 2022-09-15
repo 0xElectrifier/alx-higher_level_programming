@@ -39,7 +39,7 @@ void print_python_bytes(PyObject *p)
 
 	setbuf(stdout, NULL);
 	printf("[.] bytes object info\n");
-	if (!PyBytes_Check(p))
+	if (!PyBytes_CheckExact(p))
 	{
 		printf("  [ERROR] Invalid Float Object\n");
 		return;
