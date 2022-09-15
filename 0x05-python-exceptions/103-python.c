@@ -20,8 +20,10 @@ void print_python_float(PyObject *p)
 	}
 
 	num = ((PyFloatObject *)(p))->ob_fval;
-	str = PyOs_double_to_string(num, 'r', 0, Py_DTSF_ADD_DOT_0, NULL);
+	str = PyOS_double_to_string(num, 'r', 0, Py_DTSF_ADD_DOT_0, NULL);
 	printf("  value: %s\n", str);
+
+	free(str);
 }
 
 /**
