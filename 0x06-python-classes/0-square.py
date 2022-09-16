@@ -5,5 +5,5 @@
 
 
 class Square:
-    """An empty class to practice Class creating."""
+    """Defines a square"""
     pass
