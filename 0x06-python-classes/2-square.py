@@ -12,11 +12,12 @@ class Square:
         Args:
             size (int): size of square
         """
+        self.__ize = self.__set_x(size)
+    def __set_x(self, size):
+        if (type(size) is not int):
+            raise TypeError("size must be an integer")
+        if (size < 0):
+            raise ValueError("size must be >= 0")
         self.__size = size
-    @property
-    def f(self):
-        return (self.size)
-    @f.setter
-    def f(self, size):
-        try:
-            if (size 
+
+        return (self.__size)
