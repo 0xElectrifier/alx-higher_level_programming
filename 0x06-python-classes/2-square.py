@@ -13,7 +13,13 @@ class Square:
             size (int): size of square
         """
         self.__ize = self.__set_x(size)
+
     def __set_x(self, size):
+        """Setter function to assign self.__size.
+
+        Args:
+        size (int): size of square
+        """
         if (type(size) is not int):
             raise TypeError("size must be an integer")
         if (size < 0):
