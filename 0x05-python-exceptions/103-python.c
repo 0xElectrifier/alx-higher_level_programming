@@ -8,6 +8,9 @@
  */
 void print_python_float(PyObject *p)
 {
+	double num;
+	char *str;
+
 	setbuf(stdout, NULL);
 	printf("[.] float object info\n");
 	if (!PyFloat_Check(p))
@@ -16,7 +19,11 @@ void print_python_float(PyObject *p)
 		return;
 	}
 
-	printf("  value: %f\n", ((PyFloatObject *)(p))->ob_fval);
+	num = ((PyFloatObject *)(p))->ob_fval;
+	str = PyOS_double_to_string(num, 'r', 0, Py_DTSF_ADD_DOT_0, NULL);
+	printf("  value: %s\n", str);
+
+	free(str);
 }
 
 /**
@@ -32,14 +39,14 @@ void print_python_bytes(PyObject *p)
 
 	setbuf(stdout, NULL);
 	printf("[.] bytes object info\n");
-	if (!PyBytes_Check(p))
+	if (!PyBytes_CheckExact(p))
 	{
-		printf("  [ERROR] Invalid Float Object\n");
+		printf("  [ERROR] Invalid Bytes Object\n");
 		return;
 	}
 	size = PyBytes_Size(p);
 	lim = size;
-	if (size > 10)
+	if (size >= 10)
 		lim = 10;
 	else
 		lim += 1;
@@ -51,9 +58,9 @@ void print_python_bytes(PyObject *p)
 	for (i = 0; i < lim; i++)
 	{
 		if (str[i] < 0)
-			printf(" %02x", str[i] + 256);
+			printf(" %02hhx", str[i] + 256);
 		else
-			printf(" %02x", str[i]);
+			printf(" %02hhx", str[i]);
 	}
 	printf("\n");
 }
