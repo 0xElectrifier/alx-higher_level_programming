@@ -1,5 +1,4 @@
 #include <Python.h>
-#include <floatobject.h>
 
 /**
  * print_python_float - takes python float and attempts to print it
@@ -9,8 +8,10 @@
  */
 void print_python_float(PyObject *p)
 {
-	PyFloatObject *value;
+	double num;
+	char *str;
 
+	setbuf(stdout, NULL);
 	printf("[.] float object info\n");
 	if (!PyFloat_Check(p))
 	{
@@ -18,7 +19,11 @@ void print_python_float(PyObject *p)
 		return;
 	}
 
-	printf("  value: %f\n", ((PyFloatObject *)(p))->ob_fval);
+	num = ((PyFloatObject *)(p))->ob_fval;
+	str = PyOS_double_to_string(num, 'r', 0, Py_DTSF_ADD_DOT_0, NULL);
+	printf("  value: %s\n", str);
+
+	free(str);
 }
 
 /**
@@ -29,27 +34,33 @@ void print_python_float(PyObject *p)
  */
 void print_python_bytes(PyObject *p)
 {
-	long int i, len, lim;
+	long int i, size, lim;
+	char *str;
 
+	setbuf(stdout, NULL);
 	printf("[.] bytes object info\n");
-	if (!PyBytes_Check(p))
+	if (!PyBytes_CheckExact(p))
 	{
-		printf("  [ERROR] Invalid Float Object\n");
+		printf("  [ERROR] Invalid Bytes Object\n");
 		return;
 	}
-	len = PyBytes_Size(p);
-	lim = len;
-	if (len > 10)
+	size = PyBytes_Size(p);
+	lim = size;
+	if (size >= 10)
 		lim = 10;
+	else
+		lim += 1;
 
-	obj = PyUnicode_FromEncodedObject(p, "utf-8", "strict");
-	str = ((PyBytesObject *)(obj))->ob_sval;
-	printf("  size: %ld\n", len);
+	str = ((PyBytesObject *)(p))->ob_sval;
+	printf("  size: %ld\n", size);
 	printf("  trying string: %s\n", str);
-	printf("  first %ld bytes:");
+	printf("  first %ld bytes:", lim);
 	for (i = 0; i < lim; i++)
 	{
-		printf(" %02x", str[i]);
+		if (str[i] < 0)
+			printf(" %02hhx", str[i] + 256);
+		else
+			printf(" %02hhx", str[i]);
 	}
 	printf("\n");
 }
@@ -66,14 +77,15 @@ void print_python_list(PyObject *p)
 	PyObject *obj;
 	PyListObject *list;
 
+	setbuf(stdout, NULL);
 	printf("[*] Python list info\n");
 	if (!PyList_Check(p))
 	{
-		printf("[ERROR] Invalid List Object\n");
+		printf("  [ERROR] Invalid List Object\n");
 		return;
 	}
 	list = ((PyListObject *)(p));
-	len = p->ob_size;
+	len = ((PyVarObject *)(p))->ob_size;
 	alloc = list->allocated;
 	printf("[*] Size of the Python List = %ld\n", len);
 	printf("[*] Allocated = %ld\n", alloc);
