@@ -6,7 +6,7 @@
 class Square:
     """Defines a square by (0-square.py) module"""
     def __init__(self, size):
-        """Initializes object
+        """Initializes a new square
 
         Args:
             size (int): Size of square
