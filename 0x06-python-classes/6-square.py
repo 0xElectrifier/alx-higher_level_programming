@@ -36,16 +36,10 @@ class Square:
 
     @property
     def position(self):
-        """Getter method for self.size"""
         return (self.__position)
 
     @position.setter
     def position(self, value):
-        """Setter method for self.position
-
-        Args:
-            value (int): size of square
-        """
         if (type(value) is not tuple or
                 len(value) != 2 or
                 (not isinstance(value[0], int)) or (value[0] < 0) or
