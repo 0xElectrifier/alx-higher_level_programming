@@ -4,7 +4,7 @@
 
 
 class Rectangle:
-    """Defines a Rectangle (based on 2-rectangle.py)"""
+    """Defines a Rectangle (based on 3-rectangle.py)"""
 
     def __init__(self, width=0, height=0):
         self.width = width
