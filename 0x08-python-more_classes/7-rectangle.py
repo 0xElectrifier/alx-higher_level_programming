@@ -51,14 +51,14 @@ class Rectangle:
     def __str__(self):
         if ((self.__width == 0) or (self.__height == 0)):
             return ("")
-        s = ""
+        s = []
         for i in range(self.__height):
             for j in range(self.__width):
-                s = s + str(Rectangle.print_symbol)
+                s.append(str(Rectangle.print_symbol))
             if (i is not range(self.__height)[-1]):
-                s = s + "\n"
+                s.append("\n")
 
-        return (s)
+        return ("".join(s))
 
     def __repr__(self):
         rec = "Rectangle(" + str(self.__width) + ", "
