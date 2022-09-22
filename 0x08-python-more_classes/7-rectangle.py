@@ -4,7 +4,7 @@
 
 
 class Rectangle:
-    """Defines a Rectangle (based on 7-rectangle.py)"""
+    """Defines a Rectangle (based on 6-rectangle.py)"""
 
     number_of_instances = 0
     print_symbol = "#"
