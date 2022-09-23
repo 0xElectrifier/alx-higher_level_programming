@@ -5,4 +5,4 @@
 
 class LockedClass:
     """Only allows dynamic creation of `first_name` attribute"""
-    __slot__ = ('first_name',)
+    __slots__ = ('first_name',)
