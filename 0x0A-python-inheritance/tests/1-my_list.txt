@@ -44,6 +44,8 @@ a TypeError is raised
     [33, 18, 20, -10]
     >>> my_list.print_sorted()
     [-10, 18, 20, 33]
+    >>> print(my_list)
+    [33, 18, 20, -10]
 
 ::
 
