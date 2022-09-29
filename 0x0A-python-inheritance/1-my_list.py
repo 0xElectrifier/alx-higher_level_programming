@@ -10,3 +10,5 @@ class MyList(list):
         """Prints element of the list in sorted ascending order"""
         sorted_list = sorted(self)
         print(sorted_list)
+
+        return (sorted_list)
