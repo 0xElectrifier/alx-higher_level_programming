@@ -20,7 +20,7 @@ BaseGeometry takes doesn't take any argument to create an object
 
     >>> Bg = BaseGeometry("Hello")
     Traceback (most recent call last):
-      File "<stdin>", line 1, in <module>
+      ...
     TypeError: BaseGeometry() takes no arguments
     >>>
     >>> Bg = BaseGeometry()
@@ -35,7 +35,7 @@ is passed
 
     >>> Bg.area("Hello")
     Traceback (most recent call last):
-      File "<stdin>", line 1, in <module>
+      ...
     TypeError: BaseGeometry.area() takes 1 positional argument but 2 were given
     >>>
 
@@ -48,7 +48,7 @@ area(...) raises a Exception with messeage when called
 
     >>> Bg.area()
     Traceback (most recent call last):
-      File "<stdin>", line 1, in <module>
+      ...
     Exception: area() is not implemented
     >>>
 
@@ -61,7 +61,7 @@ integer_validator(...) takes two positional arguments for validation
 
     >>> Bg.integer_validator()
     Traceback (most recent call last):
-      File "<stdin>", line 1, in <module>
+      ...
     TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
     >>>
     >>> Bg.integer_validator("Size", 54)
@@ -75,7 +75,7 @@ TypeError when any other type is passed
 
     >>> Bg.integer_validator("Size", "eleven")
     Traceback (most recent call last):
-      File "<stdin>", line 1, in <module>
+      ...
     TypeError: Size must be an integer
     >>>
 
@@ -89,7 +89,7 @@ ValueError is raise
 
     >>> Bg.integer_validator("Size", 0)
     Traceback (most recent call last):
-      File "<stdin>", line 1, in <module>
+      ...
     ValueError: Size must be greater than 0
 
 ::
@@ -102,5 +102,5 @@ otherwise a ValueError is raised
 
     >>> Bg.integer_validator("Size", -2)
     Traceback (most recent call last):
-      File "<stdin>", line 1, in <module>
+      ...
     ValueError: Size must be greater than 0
