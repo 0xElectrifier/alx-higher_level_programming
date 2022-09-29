@@ -73,7 +73,7 @@ Case 6:
 integer_validator(...) second argument must be an int, raises a
 TypeError when any other type is passed
 
-    >>> Bg.integer_validator("Size", "54")
+    >>> Bg.integer_validator("Size", "eleven")
     Traceback (most recent call last):
       File "<stdin>", line 1, in <module>
     TypeError: Size must be an integer
