@@ -24,6 +24,7 @@ BaseGeometry takes doesn't take any argument to create an object
     TypeError: BaseGeometry() takes no arguments
     >>>
     >>> Bg = BaseGeometry()
+    >>>
 
 ::
 
@@ -104,3 +105,13 @@ otherwise a ValueError is raised
     Traceback (most recent call last):
       ...
     ValueError: Size must be greater than 0
+
+=======
+Case 9:
+=======
+passing a boolean
+
+    >>> Bg.integer_validator("Size", True)
+    Traceback (most recent call last):
+              ...
+    TypeError: Size must be an integer 
