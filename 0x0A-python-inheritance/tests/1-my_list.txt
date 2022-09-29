@@ -45,6 +45,16 @@ a TypeError is raised
     >>> my_list.print_sorted()
     [-10, 18, 20, 33]
 
+::
+
+``print_sorted`` also returns a new list
+
+::
+
+    >>> new_list = my_list.print_sorted()
+    >>> print(new_list)
+    [-10, 18, 20, 33]
+
 ``print_sorted`` method only sorts the ``MyList`` object if it contains
 only `int` data type otherwise, a TypeError is raised
 
