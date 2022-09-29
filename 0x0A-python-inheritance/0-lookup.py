@@ -1,7 +1,20 @@
 #!/usr/bin/python3
-"""Defines an object attribute lookup function."""
+
+"""Defines a function `lookup`"""
 
 
 def lookup(obj):
-    """Return a list of an object's available attributes."""
+    """Searches @obj for all it attributes.
+
+    Args:
+        obj (object): An instance of any type class.
+
+    Returns:
+        List of available attributes and methods of @obj.
+    """
+    field = obj.__dict__
+    """ for name in obj:
+        fields += [name]
+
+    """
     return (dir(obj))
