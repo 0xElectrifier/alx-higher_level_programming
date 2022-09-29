@@ -17,16 +17,19 @@ that prints all items of it object it holds
 
     >>> MyList = __import__("1-my_list").MyList
     >>> my_list = MyList()
-    >>>
+    >>> my_list.print_sorted()
+    []
+
+::
+
     >>> my_list.append(33)
     >>> my_list.append(18)
     >>> my_list.append(20)
+    >>> my_list.append(-10)
     >>> print(my_list)
-    [33, 18, 20]
+    [33, 18, 20, -10]
     >>> my_list.print_sorted()
-    [18, 20, 33]
-
-::
+    [-10, 18, 20, 33]
 
 ``print_sorted`` method only sorts the ``MyList`` object if it contains
 only `int` data type otherwise, a TypeError is raised
