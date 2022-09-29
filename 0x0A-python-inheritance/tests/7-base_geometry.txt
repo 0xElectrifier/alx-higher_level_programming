@@ -10,6 +10,7 @@ Module is present
 
     >>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
     >>>
+
 ::
 
 =======
@@ -22,6 +23,8 @@ BaseGeometry takes doesn't take any argument to create an object
       File "<stdin>", line 1, in <module>
     TypeError: BaseGeometry() takes no arguments
     >>>
+    >>> Bg = BaseGeometry()
+
 ::
 
 =======
@@ -36,6 +39,7 @@ is passed
     TypeError: BaseGeometry.area() takes 1 positional argument but 1
     was given
     >>>
+
 ::
 
 =======
@@ -48,6 +52,7 @@ area(...) raises a Exception with messeage when called
       File "<stdin>", line 1, in <module>
     Exception: area() is not implemented
     >>>
+
 ::
 
 =======
@@ -75,3 +80,16 @@ TypeError when any other type is passed
       File "<stdin>", line 1, in <module>
     TypeError: Size must be an integer
     >>>
+
+::
+
+=======
+Case 7:
+=======
+integer_validator(...) second argument must be an int and greater than
+0, otherwise a ValueError is raised
+
+    >>> bg.integer_validator("Size", -2)
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    ValueError: 33 must be greater than 0
