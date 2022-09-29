@@ -36,8 +36,7 @@ is passed
     >>> Bg.area("Hello")
     Traceback (most recent call last):
       File "<stdin>", line 1, in <module>
-    TypeError: BaseGeometry.area() takes 1 positional argument but 1
-    was given
+    TypeError: BaseGeometry.area() takes 1 positional argument but 2 were given
     >>>
 
 ::
@@ -60,13 +59,12 @@ Case 5:
 =======
 integer_validator(...) takes two positional arguments for validation
 
-    >>> bg.integer_validator()
+    >>> Bg.integer_validator()
     Traceback (most recent call last):
       File "<stdin>", line 1, in <module>
-    TypeError: BaseGeometry.integer_validator() missing 2 required
-    positional arguments: 'name' and 'value'
+    TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
     >>>
-    >>> bg.integer_validator("Size", 54)
+    >>> Bg.integer_validator("Size", 54)
     >>>
 
 =======
@@ -75,7 +73,7 @@ Case 6:
 integer_validator(...) second argument must be an int, raises a
 TypeError when any other type is passed
 
-    >>> bg.integer_validator("Size", "54")
+    >>> Bg.integer_validator("Size", "54")
     Traceback (most recent call last):
       File "<stdin>", line 1, in <module>
     TypeError: Size must be an integer
@@ -86,10 +84,23 @@ TypeError when any other type is passed
 =======
 Case 7:
 =======
-integer_validator(...) second argument must be an int and greater than
-0, otherwise a ValueError is raised
+integer_validator(...) second argument must not be 0, otherwise a
+ValueError is raise
 
-    >>> bg.integer_validator("Size", -2)
+    >>> Bg.integer_validator("Size", 0)
     Traceback (most recent call last):
       File "<stdin>", line 1, in <module>
-    ValueError: 33 must be greater than 0
+    ValueError: Size must be greater than 0
+
+::
+
+=======
+Case 8:
+=======
+integer_validator(...) second argument must not be negative,
+otherwise a ValueError is raised
+
+    >>> Bg.integer_validator("Size", -2)
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    ValueError: Size must be greater than 0
