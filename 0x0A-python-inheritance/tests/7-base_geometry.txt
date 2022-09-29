@@ -67,7 +67,7 @@ integer_validator(...) takes two positional arguments for validation
     positional arguments: 'name' and 'value'
     >>>
     >>> bg.integer_validator("Size", 54)
-    >>> 
+    >>>
 
 =======
 Case 6:
