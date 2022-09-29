@@ -106,6 +106,8 @@ otherwise a ValueError is raised
       ...
     ValueError: Size must be greater than 0
 
+::
+
 =======
 Case 9:
 =======
@@ -114,4 +116,16 @@ passing a boolean
     >>> Bg.integer_validator("Size", True)
     Traceback (most recent call last):
               ...
-    TypeError: Size must be an integer 
+    TypeError: Size must be an integer
+
+::
+
+========
+Case 10:
+========
+Passing None to method
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("age", None)
+    Traceback (most recent call last):
+              ...
+    TypeError: age must be an integer
