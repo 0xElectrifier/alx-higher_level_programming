@@ -8,7 +8,10 @@ def add_attribute(self, var, value):
 
     Args:
         var (any): the variable to be added as attribute
-        value (any): the value to be assigned to the variablea
+        value (any): the value to be assigned to the variables
+
+    Raises:
+        TypeError: if attribute can't be created
     """
     if not hasattr(self, "__dict__"):
         raise TypeError("can't add new attributes")
