@@ -9,7 +9,7 @@ def append_write(filename="", text=""):
     Args:
         filename (str): file to be editted
         text (str): text to be appended into @filename
-    
+
     Returns:
         The number of characters added
     """
