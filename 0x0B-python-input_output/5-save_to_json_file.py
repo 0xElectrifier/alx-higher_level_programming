@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """Defines a function ``save_to_json``"""
-
-
 import json
+
+
 def save_to_json_file(my_obj, filename):
     """Writes @my_obj to @filename using JSON representation.
 
