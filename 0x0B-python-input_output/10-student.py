@@ -21,8 +21,8 @@ class Student:
         if (attrs is None):
             return (self.__dict__)
 
-        if ((type(attrs) != list) or (not all([type(item) is str
-            for item in attrs]))):
+        if ((type(attrs) != list) or
+                not all([type(item) is str for item in attrs])):
             return
 
         ret = {key: getattr(self, key) for key in attrs if hasattr(self, key)}
