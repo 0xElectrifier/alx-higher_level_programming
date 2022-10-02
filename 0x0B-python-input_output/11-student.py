@@ -1,41 +1,38 @@
 #!/usr/bin/python3
-"""Defines a class Student."""
+"""Creates a class ``student``"""
 
 
 class Student:
-    """Represent a student."""
-
+    """Defines a student object (based on ``10-student.py``"""
     def __init__(self, first_name, last_name, age):
-        """Initialize a new Student.
+        """Initializes a student object.
 
         Args:
-            first_name (str): The first name of the student.
-            last_name (str): The last name of the student.
-            age (int): The age of the student.
+            first_name (str): student's first name.
+            last_name (str): student's lastname.
+            age (int): student's age.
         """
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
     def to_json(self, attrs=None):
-        """Get a dictionary representation of the Student.
+        """Returns the dictionary representation of ``Student`` object"""
+        if (attrs is None):
+            return (self.__dict__)
 
-        If attrs is a list of strings, represents only those attributes
-        included in the list.
+        if ((type(attrs) != list) or
+                not all([type(item) is str for item in attrs])):
+            return
 
-        Args:
-            attrs (list): (Optional) The attributes to represent.
-        """
-        if (type(attrs) == list and
-                all(type(ele) == str for ele in attrs)):
-            return {k: getattr(self, k) for k in attrs if hasattr(self, k)}
-        return self.__dict__
+        ret = {key: getattr(self, key) for key in attrs if hasattr(self, key)}
+        return (ret)
 
     def reload_from_json(self, json):
-        """Replace all attributes of the Student.
+        """Replaces all attributes of a ``Student`` instance
 
         Args:
-            json (dict): The key/value pairs to replace attributes with.
+            json (dict): A json dictionary format, containing the key/value
+            to be used for replacement
         """
-        for k, v in json.items():
-            setattr(self, k, v)
+        [setattr(self, key, json[key]) for key in json if hasattr(self, key)]
