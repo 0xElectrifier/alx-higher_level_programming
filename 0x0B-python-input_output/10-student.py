@@ -21,8 +21,9 @@ class Student:
         if (attrs is None):
             return (self.__dict__)
 
-        my_dict = {}
-        for key in attrs:
-            if (hasattr(self, key)):
-                my_dict[key] = getattr(self, key, None)
-        return (my_dict)
+        if ((type(attrs) != list) or (not all([type(item) is str
+            for item in attrs]))):
+            return
+
+        ret = {key: getattr(self, key) for key in attrs if hasattr(self, key)}
+        return (ret)
