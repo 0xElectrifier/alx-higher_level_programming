@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Creates a class ``Rectangle``"""
-Base = __import__("Base").Base
+from models.base import Base
 
 
 class Rectangle(Base):
@@ -13,7 +13,7 @@ class Rectangle(Base):
             width (int): rectangle width.
             height (int): rectangle height.
         """
-        super.__init__(id)
+        super().__init__(id)
         self.width = width
         self.height = height
         self.x = x
