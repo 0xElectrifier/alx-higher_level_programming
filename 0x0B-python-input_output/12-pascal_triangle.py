@@ -2,13 +2,36 @@
 """Defines a function, ``pascal_triangle``"""
 
 
+def factorial(n):
+    """Calculates the factorial of n"""
+    if (n == 0):
+        return (1)
+
+    return (n * factorial(n - 1))
+
+
+def combination(n=0, r=0):
+    """Calculates the Combination, ``nCr``
+
+    Args:
+        n (int): total number of objects in the set
+        r (int): number of choosing objects from the set
+    Return:
+        The calculated combination
+    """
+    c = int(factorial(n) / (factorial(n - r) * factorial(r)))
+    return (c)
+
 def pascal_triangle(n):
     """Returns a list of lists of integers representing the
     Pascal's triangle of n"""
     triangle = []
 
     for m in range(n):
-        poww = str(11 ** m)
-        triangle.append(int(i) for i in poww)
+        triangle.append([combination(m, b) for b in range(m+1)])
+        #row = []
+        #for b in range(m):
+        #    row.append(combination(m, b))
+        #triangle.append(row)
 
     return (triangle)
