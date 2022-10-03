@@ -19,7 +19,7 @@ def combination(n=0, r=0):
     Return:
         The calculated combination
     """
-    c = int(factorial(n) / (factorial(n - r) * factorial(r)))
+    c = factorial(n) // (factorial(n - r) * factorial(r))
     return (c)
 
 
