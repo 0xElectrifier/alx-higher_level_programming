@@ -22,6 +22,7 @@ def combination(n=0, r=0):
     c = int(factorial(n) / (factorial(n - r) * factorial(r)))
     return (c)
 
+
 def pascal_triangle(n):
     """Returns a list of lists of integers representing the
     Pascal's triangle of n"""
@@ -29,9 +30,5 @@ def pascal_triangle(n):
 
     for m in range(n):
         triangle.append([combination(m, b) for b in range(m+1)])
-        #row = []
-        #for b in range(m):
-        #    row.append(combination(m, b))
-        #triangle.append(row)
 
     return (triangle)
