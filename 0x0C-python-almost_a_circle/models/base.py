@@ -13,7 +13,7 @@ class Base:
         """Initializes Object
 
         Args:
-            id (int):
+            id (int): id of objects
         """
         if (id is not None):
             __nb_objects += 1
