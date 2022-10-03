@@ -19,6 +19,16 @@ class Rectangle(Base):
         self.x = x
         self.y = y
 
+    def __type_check(self, attribute, value):
+        """Handles the type check of each setter methods
+
+        Args:
+            attribute (str): name of attribute
+            value (object): value to be checked
+        """
+        if (type(value) is not int):
+                raise TypeError("{} must be an integer".format(attribute))
+
     @property
     def width(self):
         """Returns the width attribute"""
@@ -27,6 +37,9 @@ class Rectangle(Base):
     @width.setter
     def width(self, width):
         """Sets value for the `width` attribute"""
+        self.__type_check("width", width)
+        if (width <= 0):
+            raise ValueError("width must be > 0")
         self.__width = width
 
     @property
@@ -37,6 +50,9 @@ class Rectangle(Base):
     @height.setter
     def height(self, height):
         """Sets value for the ``height`` attribute"""
+        self.__type_check("height", height)
+        if (height <= 0):
+            raise ValueError("height must be > 0")
         self.__height = height
 
     @property
@@ -47,6 +63,9 @@ class Rectangle(Base):
     @x.setter
     def x(self, x):
         """Sets value for the `x` attribute"""
+        self.__type_check("x", x)
+        if (x < 0):
+            raise ValueError("x must be >= 0")
         self.__x = x
 
     @property
@@ -57,4 +76,11 @@ class Rectangle(Base):
     @y.setter
     def y(self, y):
         """Sets value for the `y` attribute"""
+        self.__type_check("y", y)
+        if (y < 0):
+            raise ValueError("y must be >= 0")
         self.__y = y
+
+    def area(self):
+        """Returns the area of the ``Rectangle`` object"""
+        return (self.height * self.width)
