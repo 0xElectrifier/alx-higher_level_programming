@@ -94,3 +94,8 @@ class Rectangle(Base):
         for i in range(self.height):
             for j in range(self.width):
                 print("#", end="" if (j != (self.width - 1)) else "\n")
+
+    def __str__(self):
+        """Returns information about the `Rectangle`"""
+        return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
+            self.x, self.y, self.width, self.height))
