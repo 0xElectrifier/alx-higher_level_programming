@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """First Project"""
+import json
 
 
 class Base:
@@ -27,11 +28,11 @@ class Base:
         Args:
             list_dictionaries (list): containing dictionaries to be converted
         """
-        import json
+
         ld = list_dictionaries
         if type(ld) is not list:
             return
 
-        if ((len(ld) is 0) or (ld is None)):
+        if ((len(ld) == 0) or (ld is None)):
             return ([])
         return (json.dumps(ld))
