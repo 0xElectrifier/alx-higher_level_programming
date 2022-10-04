@@ -35,5 +35,5 @@ class Base:
             return
 
         if ((len(ld) == 0) or (ld is None)):
-            return ([])
+            ld = []
         return (json.dumps(ld))
