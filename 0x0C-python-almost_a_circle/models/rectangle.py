@@ -98,4 +98,4 @@ class Rectangle(Base):
     def __str__(self):
         """Returns information about the `Rectangle`"""
         return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
-            self.x, self.y, self.width, self.height))
+                self.x, self.y, self.width, self.height))
