@@ -116,5 +116,5 @@ class Rectangle(Base):
 
         if (args):
             return
-        for key, value in list(kwargs.items):
+        for key, value in list(kwargs.items()):
             setattr(self, key, value)
