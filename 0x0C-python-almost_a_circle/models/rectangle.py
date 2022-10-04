@@ -84,3 +84,37 @@ class Rectangle(Base):
     def area(self):
         """Returns the area of the ``Rectangle`` object"""
         return (self.height * self.width)
+
+    def display(self):
+        """Returns the string representation of the `Rectangle` object"""
+        """
+        [[print("#", end="" if (i != (self.width - 1)) else "\n")
+            for i in range(self.width)] for j in range(self.height)]
+        """
+        [print("") for i in range(self.y)]
+        for i in range(self.height):
+            print(" " * self.x, end="")
+            for j in range(self.width):
+                print("#", end="" if (j != (self.width - 1)) else "\n")
+
+    def __str__(self):
+        """Returns information about the `Rectangle`"""
+        return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
+                self.x, self.y, self.width, self.height))
+
+    def update(self, *args, **kwargs):
+        """Updates the ``Rectangle` by assigning arguments to
+        each attribute"""
+        try:
+            self.id = args[0]
+            self.width = args[1]
+            self.height = args[2]
+            self.x = args[3]
+            self.y = args[4]
+        except IndexError:
+            pass
+
+        if (args):
+            return
+        for key, value in list(kwargs.items()):
+            setattr(self, key, value)
