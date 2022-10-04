@@ -3,7 +3,6 @@
 import json
 
 
-
 class Base:
     """Base class of all other classes in this project. It manages
     ``id`` attribute in all other classes, to avoid duplicating the
@@ -46,15 +45,15 @@ class Base:
             list_objs (obj): list of instances who inherits of ``Base`` class
         """
         filename = cls.__name__ + ".json"
+        j_list = []
+
         if (list_objs is None):
-            with open(filename, "w", encoding="utf-8") as f:
-                f.write("")
+            pass
         else:
-            j_list = []
             for obj in list_objs:
                 b_dict = obj.to_dictionary()
                 j_list.append(b_dict)
 
-            j_str = Base.to_json_string(j_list)
-            with open(filename, "w", encoding="utf-8") as f:
-                f.write(j_str)
+        j_str = Base.to_json_string(j_list)
+        with open(filename, "w", encoding="utf-8") as f:
+            f.write(j_str)
