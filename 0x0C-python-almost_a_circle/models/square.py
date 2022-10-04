@@ -17,6 +17,26 @@ class Square(Rectangle):
             id (int): the id of each square instance
         """
         super().__init__(size, size, x, y, id)
+        self.size = size
+
+    @property
+    def size(self):
+        """Getter method for `self.__size` attribute"""
+        return (self.__width)
+
+    @size.setter
+    def size(self, size):
+        """Setter method for `self.__size attribute
+
+        Args:
+            size (int): the value to be assigned
+        """
+        if (type(size) is not int):
+            raise TypeError("{} must be an integer".format(size))
+        if (size <= 0):
+            raise ValueError("width must be > 0")
+        self.__width = size
+        self.__height = size
 
     def __str__(self):
         """Returns information about the `Square`"""
