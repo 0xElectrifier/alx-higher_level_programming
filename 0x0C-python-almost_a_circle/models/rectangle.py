@@ -91,7 +91,9 @@ class Rectangle(Base):
         [[print("#", end="" if (i != (self.width - 1)) else "\n")
             for i in range(self.width)] for j in range(self.height)]
         """
+        [print("") for i in range(self.y)]
         for i in range(self.height):
+            print(" " * self.x, end="")
             for j in range(self.width):
                 print("#", end="" if (j != (self.width - 1)) else "\n")
 
