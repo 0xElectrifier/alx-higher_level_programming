@@ -122,7 +122,7 @@ class Rectangle(Base):
     def to_dictionary(self):
         """Returns the dictionary representation of the `Rectangle`
         instance"""
-        r_dict = dict(iid=self.id, width=self.width, height=self.height,
+        r_dict = dict(id=self.id, width=self.width, height=self.height,
                       x=self.x, y=self.y)
 
         return (r_dict)
