@@ -27,7 +27,7 @@ class Rectangle(Base):
             value (object): value to be checked
         """
         if (type(value) is not int):
-                raise TypeError("{} must be an integer".format(attribute))
+            raise TypeError("{} must be an integer".format(attribute))
 
     @property
     def width(self):
