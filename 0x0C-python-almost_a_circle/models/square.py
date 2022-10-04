@@ -38,7 +38,31 @@ class Square(Rectangle):
         self.__width = size
         self.__height = size
 
+    def update(self, *args, **kwargs):
+        """Updates attributes of a `Square` instance
+
+        Args:
+            args (list): contains extra unknown arguments
+                - 1st argument is the `id` attribute
+                - 2nd argument is the `size` attribute
+                - 3rd argument is the `x` attribute
+                - 4th argument is the `y` attibute
+            kwargs (list): just like args, contains list of key/word args
+        """
+        try:
+            self.id = args[0]
+            self.size = args[1]
+            self.x = args[2]
+            self.y = args[3]
+        except IndexError:
+            pass
+
+        if (args):
+            return
+        for key, value in list(kwargs.items()):
+            setattr(self, key, value)
+
     def __str__(self):
         """Returns information about the `Square`"""
         return ("[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y,
-                self.height))
+                self.size))
