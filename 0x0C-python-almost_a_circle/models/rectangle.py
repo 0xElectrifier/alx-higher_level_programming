@@ -102,7 +102,7 @@ class Rectangle(Base):
         return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
                 self.x, self.y, self.width, self.height))
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """Updates the ``Rectangle` by assigning arguments to
         each attribute"""
         try:
@@ -113,3 +113,8 @@ class Rectangle(Base):
             self.y = args[4]
         except IndexError:
             pass
+
+        if (args):
+            return
+        for key, value in list(kwargs.items):
+            setattr(self, key, value)
