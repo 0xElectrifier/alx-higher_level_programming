@@ -29,7 +29,7 @@ class Base:
         """
         import json
         ld = list_dictionaries
-        if type(ld) is not list):
+        if type(ld) is not list:
             return
 
         if ((len(ld) is 0) or (ld is None)):
