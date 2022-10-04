@@ -84,3 +84,13 @@ class Rectangle(Base):
     def area(self):
         """Returns the area of the ``Rectangle`` object"""
         return (self.height * self.width)
+
+    def display(self):
+        """Returns the string representation of the `Rectangle` object"""
+        """
+        [[print("#", end="" if (i != (self.width - 1)) else "\n")
+            for i in range(self.width)] for j in range(self.height)]
+        """
+        for i in range(self.height):
+            for j in range(self.width):
+                print("#", end="" if (j != (self.width - 1)) else "\n")
