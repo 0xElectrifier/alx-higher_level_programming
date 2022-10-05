@@ -98,7 +98,7 @@ class Base:
         filename = cls.__name__ + ".json"
         try:
             with open(filename, encoding="utf-8") as f:
-                return (json.load(filename))
+                return (json.load(f))
         except FileNotFoundError:
             return ([])
 
