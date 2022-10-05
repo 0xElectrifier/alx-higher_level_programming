@@ -101,6 +101,8 @@ class Base:
                 return (json.load(filename))
         except FileNotFoundError:
             return ([])
+
+
 """
     @classmethod
     def save_to_file_csv(cls, list_objs):
@@ -109,5 +111,5 @@ class Base:
 
     @classmethod
     def load_from_file_csv(cls):
-        
+
 """
