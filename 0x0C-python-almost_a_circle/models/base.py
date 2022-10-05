@@ -48,6 +48,12 @@ class Base:
 
         return (json.loads(json_string))
 
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """
+
+        """
+
     @classmethod
     def save_to_file(cls, list_objs):
         """Class method that writes to a JSON file the json representation
@@ -78,7 +84,30 @@ class Base:
             dictionary (dictionary): list of key/word arguments to be
             implemented into the instance
         """
-        new = cls(1, 1)
-        new.update(**dictionary)
+        if (cls.__name__ == "Rectangle"):
+            new_obj = cls(1, 1)
+        else:
+            new_obj = cls(1)
+        new_obj.update(**dictionary)
 
-        return (new)
+        return (new_obj)
+
+    @classmethod
+    def load_from_file(cls):
+        """Returns a list of instances"""
+        filename = cls.__name__ + ".json"
+        try:
+            with open(filename, encoding="utf-8") as f:
+                return (json.load(filename))
+        except FileNotFoundError:
+            return ([])
+"""
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        j
+
+
+    @classmethod
+    def load_from_file_csv(cls):
+        
+"""
