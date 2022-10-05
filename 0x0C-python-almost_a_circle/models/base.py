@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """First Project"""
 import json
+import csv
 
 
 class Base:
@@ -106,14 +107,47 @@ class Base:
             rects.append(cls.create(**rect))
         return (rects)
 
-
-"""
     @classmethod
     def save_to_file_csv(cls, list_objs):
-        j
+        """Writes @list_objs into `csv` file"""
+
+        filename = cls.__name__ + ".csv"
+        if (cls.__name__ == "Rectangle"):
+            field = ["id", "width", "height", "x", "y"]
+        else:
+            field = ["id", "size", "x", "y"]
+
+        rows = []
+        for obj in list_objs:
+            row = []
+            for attr in field:
+                row.append(getattr(obj, attr))
+            rows.append(row)
+
+        with open(filename, "w", encoding="utf-8") as csvfile:
+            csv_writer = csv.writer(csvfile)
+            csv_writer.writerow(field)
+            csv_writer.writerows(rows)
 
 
     @classmethod
     def load_from_file_csv(cls):
+        """Reads from `csv` file"""
+        filename = cls.__name__ + ".csv"
+        with open(filename, encoding="utf-8") as csvfile:
+            csv_reader = csv.reader(csvfile)
+            field = next(csv_reader)
+            rows = []
+            for row in csv_reader:
+                rows.append(row)
 
-"""
+        obj_list = []
+        for row in rows:
+            obj_dict = dict()
+            for i in range(len(field)):
+                obj_dict[field[i]] = int(row[i])
+
+            new = cls.create(**obj_dict)
+            obj_list.append(new)
+
+        return (obj_list)
