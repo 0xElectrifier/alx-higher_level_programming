@@ -36,6 +36,18 @@ class Base:
             return ("[]")
         return (json.dumps(ld))
 
+    @staticmethod
+    def from_json_string(json_string):
+        """Returns the list of the JSON string representation
+
+        Args:
+            json_string (json): string representing a list of dictionaries
+        """
+        if json_string is None:
+            return ([])
+
+        return (json.loads(json_string))
+
     @classmethod
     def save_to_file(cls, list_objs):
         """Class method that writes to a JSON file the json representation
@@ -57,3 +69,16 @@ class Base:
         j_str = Base.to_json_string(j_list)
         with open(filename, "w", encoding="utf-8") as f:
             f.write(j_str)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """Returns an instance with all attributes already set
+
+        Args:
+            dictionary (dictionary): list of key/word arguments to be
+            implemented into the instance
+        """
+        new = cls(1, 1)
+        new.update(**dictionary)
+
+        return (new)
