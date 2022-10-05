@@ -100,7 +100,7 @@ class Base:
             with open(filename, encoding="utf-8") as f:
                 j_list = cls.from_json_string(f.read())
         except FileNotFoundError:
-            pass
+            j_list = []
         rects = []
         for rect in j_list:
             rects.append(cls.create(**rect))
