@@ -98,9 +98,13 @@ class Base:
         filename = cls.__name__ + ".json"
         try:
             with open(filename, encoding="utf-8") as f:
-                return (json.load(f))
+                j_list = cls.from_json_string(f.read())
         except FileNotFoundError:
-            return ([])
+            pass
+        rects = []
+        for rect in j_list:
+            rects.append(cls.create(**rect))
+        return (rects)
 
 
 """
