@@ -129,7 +129,6 @@ class Base:
             csv_writer.writerow(field)
             csv_writer.writerows(rows)
 
-
     @classmethod
     def load_from_file_csv(cls):
         """Reads from `csv` file"""
