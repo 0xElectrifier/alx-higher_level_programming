@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ 101-main """
-[?12;2$yfrom models.base import Base
+from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
 

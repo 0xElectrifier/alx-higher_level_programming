@@ -66,19 +66,39 @@ class Base:
         tobj.penup()
         tobj.backward(200)
         tobj.left(90)
-        tobj.forward(200)
+        tobj.forward(150)
         tobj.pendown()
+        tobj.right(90)
 
-        for rect, square in list_rectangle, list_square:
+        for rect in list_rectangles:
             width = getattr(rect, "width")
             height = getattr(rect, "height")
-            if (square):
-                width = getattr(square, "width")
-                height = getattr(square, "height")
+
+            for i in range(2):
+                tobj.forward(width)
+                tobj.right(90)
+                tobj.forward(height)
+                tobj.right(90)
+            """
+            tobj.penup()
+            tobj.forward(width + 20)
+            tobj.pendown()
+            """
+            #turtle.done()
+
+        tobj.right(90)
+        tobj.penup()
+        tobj.forward(height * 5)
+        tobj.down()
+
+        for sqr in list_squares:
+            width = getattr(sqr, "width")
+            height = getattr(sqr, "height")
 
             for i in range(4):
                 tobj.forward(width)
                 tobj.right(90)
+        turtle.done()
 
     @classmethod
     def save_to_file(cls, list_objs):
