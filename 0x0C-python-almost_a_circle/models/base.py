@@ -84,7 +84,6 @@ class Base:
             tobj.forward(width + 20)
             tobj.pendown()
             """
-            #turtle.done()
 
         tobj.right(90)
         tobj.penup()
