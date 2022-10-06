@@ -2,6 +2,7 @@
 """First Project"""
 import json
 import csv
+import turtle
 
 
 class Base:
@@ -51,9 +52,33 @@ class Base:
 
     @staticmethod
     def draw(list_rectangles, list_squares):
-        """
+        """Uses the turtle module to draw the Object
 
+        Args:
+            list_rectangles (list): list of `Rectangle` instances
+            lsit_squares (list): list of `Square` instances
         """
+        wn = turtle.Screen()
+        tobj = turtle.Turtle()
+
+        wn.bgcolor("light green")
+        tobj.color("blue")
+        tobj.penup()
+        tobj.backward(200)
+        tobj.left(90)
+        tobj.forward(200)
+        tobj.pendown()
+
+        for rect, square in list_rectangle, list_square:
+            width = getattr(rect, "width")
+            height = getattr(rect, "height")
+            if (square):
+                width = getattr(square, "width")
+                height = getattr(square, "height")
+
+            for i in range(4):
+                tobj.forward(width)
+                tobj.right(90)
 
     @classmethod
     def save_to_file(cls, list_objs):
