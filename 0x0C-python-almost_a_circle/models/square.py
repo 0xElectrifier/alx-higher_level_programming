@@ -60,7 +60,14 @@ class Square(Rectangle):
         if (args):
             return
         for key, value in list(kwargs.items()):
-            setattr(self, key, value)
+            if (key is "id"):
+                self.id = key
+            elif (key is "size"):
+                self.size = key
+            elif (key is "x"):
+                self.x = key
+            elif (key is "y"):
+                self.y = key
 
     def to_dictionary(self):
         """Returns the dictionary representation of the `Square` instance"""
