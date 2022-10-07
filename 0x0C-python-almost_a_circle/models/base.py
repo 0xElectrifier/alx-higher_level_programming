@@ -155,25 +155,29 @@ class Base:
     def save_to_file_csv(cls, list_objs):
         """Writes @list_objs into `csv` file"""
 
-        if (list_objs is None):
-            return
         filename = cls.__name__ + ".csv"
+
         if (cls.__name__ == "Rectangle"):
             field = ["id", "width", "height", "x", "y"]
         else:
             field = ["id", "size", "x", "y"]
 
-        rows = []
-        for obj in list_objs:
-            row = []
-            for attr in field:
-                row.append(getattr(obj, attr))
-            rows.append(row)
+        if (list_objs is None or list_objs == []):
+            with open(filename, "w", encoding="utf-8") as csvfile:
+                csvfile.write("[]")
+            return
+        else:
+            rows = []
+            for obj in list_objs:
+                row = []
+                for attr in field:
+                    row.append(getattr(obj, attr))
+                rows.append(row)
 
-        with open(filename, "w", encoding="utf-8") as csvfile:
-            csv_writer = csv.writer(csvfile)
-            csv_writer.writerow(field)
-            csv_writer.writerows(rows)
+            with open(filename, "w", encoding="utf-8") as csvfile:
+                csv_writer = csv.writer(csvfile)
+                csv_writer.writerow(field)
+                csv_writer.writerows(rows)
 
     @classmethod
     def load_from_file_csv(cls):

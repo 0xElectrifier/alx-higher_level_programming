@@ -37,6 +37,8 @@ class Square(Rectangle):
             raise ValueError("width must be > 0")
         self.__width = size
         self.__height = size
+        self.width = size
+        self.height = size
 
     def update(self, *args, **kwargs):
         """Updates attributes of a `Square` instance
@@ -61,13 +63,13 @@ class Square(Rectangle):
             return
         for key, value in list(kwargs.items()):
             if (key is "id"):
-                self.id = key
+                self.id = value
             elif (key is "size"):
-                self.size = key
+                self.size = value
             elif (key is "x"):
-                self.x = key
+                self.x = value
             elif (key is "y"):
-                self.y = key
+                self.y = value
 
     def to_dictionary(self):
         """Returns the dictionary representation of the `Square` instance"""

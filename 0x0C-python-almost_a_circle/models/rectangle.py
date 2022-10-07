@@ -118,15 +118,15 @@ class Rectangle(Base):
             return
         for key, value in list(kwargs.items()):
             if (key is "id"):
-                self.id = key
+                self.id = value
             elif (key is "height"):
-                self.height = key
+                self.height = value
             elif (key is "width"):
-                self.width = key
+                self.width = value
             elif (key is "x"):
-                self.x = key
+                self.x = value
             elif (key is "y"):
-                self.y = key
+                self.y = value
 
     def to_dictionary(self):
         """Returns the dictionary representation of the `Rectangle`
