@@ -155,6 +155,8 @@ class Base:
     def save_to_file_csv(cls, list_objs):
         """Writes @list_objs into `csv` file"""
 
+        if (list_objs is None):
+            return
         filename = cls.__name__ + ".csv"
         if (cls.__name__ == "Rectangle"):
             field = ["id", "width", "height", "x", "y"]
