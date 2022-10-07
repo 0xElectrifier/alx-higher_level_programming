@@ -183,12 +183,15 @@ class Base:
     def load_from_file_csv(cls):
         """Reads from `csv` file"""
         filename = cls.__name__ + ".csv"
-        with open(filename, encoding="utf-8") as csvfile:
-            csv_reader = csv.reader(csvfile)
-            field = next(csv_reader)
-            rows = []
-            for row in csv_reader:
-                rows.append(row)
+        try:
+            with open(filename, encoding="utf-8") as csvfile:
+                csv_reader = csv.reader(csvfile)
+                field = next(csv_reader)
+                rows = []
+                for row in csv_reader:
+                    rows.append(row)
+        except FileNotFoundError:
+            return ([])
 
         obj_list = []
         for row in rows:

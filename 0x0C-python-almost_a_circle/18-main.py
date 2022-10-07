@@ -21,7 +21,7 @@ if __name__ == "__main__":
 
     for rect in list_rectangles_output:
         print("[{}] {}".format(id(rect), rect))
-
+"""
     print("-2--")
     print("-3--")
 
@@ -40,3 +40,5 @@ if __name__ == "__main__":
 
     for square in list_squares_output:
         print("[{}] {}".format(id(square), square))
+
+"""
