@@ -1,5 +1,5 @@
--- creates table with specific description where id defaults to 1
+-- Creates the table 'id_not_null on your server
 CREATE TABLE IF NOT EXISTS id_not_null (
-  id INT DEFAULT 1,
-  name VARCHAR(256)
-  );
+	`id` INT DEFAULT 1,
+	`name` VARCHAR(256)
+);
