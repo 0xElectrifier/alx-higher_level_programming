@@ -4,7 +4,7 @@ if (isNaN(size)) console.log('Missing size');
 parseInt(size);
 for (let i = 0; i < size; i++) {
   for (let j = 0; j < size; j++) {
-	  process.stdout.write('X');
+    process.stdout.write('X');
   }
-	process.stdout.write('\n');
+  process.stdout.write('\n');
 }
