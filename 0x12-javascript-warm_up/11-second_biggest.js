@@ -14,7 +14,7 @@ if (argv[3] > argv[2]) {
   secondMax = argv[3];
 }
 max = parseInt(max);
-secondMax = parseInt(max);
+secondMax = parseInt(secondMax);
 for (let i = 4; i < (argc + 2); i++) {
   current = parseInt(argv[i]);
   if (current > max) {
@@ -24,7 +24,7 @@ for (let i = 4; i < (argc + 2); i++) {
     }
   } else if (current < max) {
     if (current > secondMax) {
-      seondMax = current;
+      secondMax = current;
     }
   }
 }
