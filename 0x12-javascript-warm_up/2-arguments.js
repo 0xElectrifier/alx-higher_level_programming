@@ -4,7 +4,7 @@ if (args === 0) {
   console.log('No argument');
   process.exit(1);
 } else if (args === 1) {
-  console.log('Arguments found');
+  console.log('Argument found');
   process.exit(0);
 } else {
   console.log('Arguments found');
