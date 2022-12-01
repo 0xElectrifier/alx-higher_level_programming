@@ -3,7 +3,7 @@ const myObject = {
   type: 'object',
   value: 12,
   incr: () => {
-    myObject.value++;
+    this.value++;
   }
 };
 console.log(myObject);
