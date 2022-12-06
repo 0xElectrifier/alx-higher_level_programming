@@ -1,9 +1,9 @@
 #!/usr/bin/python3
+"""Script that lists all states from the database `hbtn_0e_0_usa`"""
 import MySQLdb
 import sys
 
 
-"""Script that lists all states from the database `hbtn_0e_0_usa`"""
 if __name__ == '__main__':
     argv = sys.argv
     db = MySQLdb.connect(host='127.0.0.1', user=argv[1], passwd=argv[2],
