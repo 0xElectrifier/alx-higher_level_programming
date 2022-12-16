@@ -1,3 +1,3 @@
 #!/bin/bash
-# display methods
-curl -s -X POST $1 -d @"$2" --header "Content-Type: application/json"
+# Sends a JSON 'POST' request to a URL and displays the body of the response
+curl -sX 'POST' -d @$2 -H 'Content-Type: application/json' $1;
