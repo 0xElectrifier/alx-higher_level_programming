@@ -1,3 +1,3 @@
 #!/bin/bash
-# display methods
-curl -s -H "X-School-User-Id: 98" $1
+# Sends a 'GET' request to the first argument(URL)
+curl -sH 'X-School-User-Id: 98' $1
