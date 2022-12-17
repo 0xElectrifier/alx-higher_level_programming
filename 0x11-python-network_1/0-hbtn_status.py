@@ -1,16 +1,21 @@
 #!/usr/bin/python3
+"""Script that fetches 'https://alx-intranet.hbtn.io/status'
 """
-Prints different results of
-a request
-"""
-import urllib.request
+from urllib import request, parse
 
 
-if __name__ == "__main__":
-    url = "https://intranet.hbtn.io/status"
-    with urllib.request.urlopen(url) as response:
-        html = response.read()
-        print("Body response:")
-        print("-\t type:", type(html))
-        print("-\t content:", html)
-        print("-\t utf8 content:", html.decode("utf-8"))
+req = request.Request('https://alx-intranet.hbtn.io/status')
+with request.urlopen(req) as res:
+    res_read = res.read()
+    response = [type(res_read),
+                     res_read,
+                     res.msg]
+    print("Body response:\n\
+    - type: {}\n\
+    - content: {}\n\
+    - utf8 content: {}".format(response[0],
+                               response[1],
+                               response[2]))
+
+
+#        for item in response.values()
