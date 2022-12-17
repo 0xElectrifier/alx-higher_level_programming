@@ -12,5 +12,4 @@ if __name__ == '__main__':
     url = argv[1]
     req = request.Request(url)
     with request.urlopen(req) as response:
-        #headers = response.headers
         print(response.headers.get('X-Request-Id'))
