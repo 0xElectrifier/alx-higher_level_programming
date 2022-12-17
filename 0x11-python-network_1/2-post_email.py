@@ -8,9 +8,6 @@ from sys import argv
 
 
 if __name__ == '__main__':
-    if len(argv) == 1:
-        exit()
-
     url = argv[1]
     values = {'email': argv[2]}
     values = parse.urlencode(values)
