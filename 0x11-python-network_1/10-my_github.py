@@ -1,11 +1,15 @@
 #!/usr/bin/python3
-""" send POST request to github """
+"""Script that takes your GitHub credentials (username and password) and
+uses the `GitHub API` to display your 'id'
+"""
 import requests
-import sys
+from sys import argv
 
 
 if __name__ == "__main__":
-    response = requests.get("https://api.github.com/user", auth=(
-        sys.argv[1], sys.argv[2]))
-    result = response.json()
-    print(result.get("id"))
+    url = 'https://api.github.com/user'
+    param = {'username': argv[1]}
+    headers = {'Authorization': 'token ' + argv[2]}
+    response = requests.get(url, headers=headers, params=param)
+    json_content = response.json()
+    print(json_content.get('id'))
