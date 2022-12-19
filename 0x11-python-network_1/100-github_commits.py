@@ -12,7 +12,8 @@ from sys import argv
 
 
 if __name__ == '__main__':
-    url = 'https://api.github.com/repos/' + argv[2] + '/' + argv[1] + '/commits'
+    url = 'https://api.github.com/repos/' + argv[2] + '/'
+    url += argv[1] + '/commits'
     params = {'owner': 'rails', 'repo': 'rails', 'per_page': 10}
     response = requests.get(url, params=params)
     json_content = response.json()
