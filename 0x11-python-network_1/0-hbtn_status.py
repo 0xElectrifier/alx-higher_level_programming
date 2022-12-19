@@ -13,6 +13,6 @@ if __name__ == '__main__':
                     res_read,
                     res_read.decode()]
         print("Body response:")
-        print("    - type: {}".format(response[0]))
-        print("    - content: {}".format(response[1]))
-        print("    - utf8 content: {}".format(response[2]))
+        print("\t- type: {}".format(response[0]))
+        print("\t- content: {}".format(response[1]))
+        print("\t- utf8 content: {}".format(response[2]))
