@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-list all State objects that contain the letter a from a database
+changes the name of the State object where id=2 to New Mexico from a database
 """
 
 import sqlalchemy
@@ -9,6 +9,7 @@ from sqlalchemy.orm import sessionmaker
 from sys import argv
 from model_state import Base, State
 
+
 if __name__ == "__main__":
     eng = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(argv[1],
                                                                     argv[2],
@@ -16,8 +17,8 @@ if __name__ == "__main__":
     Base.metadata.create_all(eng)
     Session = sessionmaker(bind=eng)
     session = Session()
-    s = '%a%'
-    states = session.query(State).filter(State.name.like(s)).order_by(State.id)
+    states = session.query(State).filter(State.name.like('%a%'))
     for state in states:
-        print("{}: {}".format(state.id, state.name))
+        session.delete(state)
+    session.commit()
     session.close()
