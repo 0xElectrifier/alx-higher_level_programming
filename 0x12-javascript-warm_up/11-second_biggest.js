@@ -1,9 +1,6 @@
 #!/usr/bin/node
 
 function searchSecLargest (arr) {
-  let largest = argv[2];
-  let sLargest = argv[2];
-  let current;
   const argLen = argv.length;
   if (argLen < 4) return (0);
 
@@ -13,7 +10,11 @@ function searchSecLargest (arr) {
     argv[i] = parseInt(argv[i]);
   }
 
-  // Find the FIRST second largest integer
+  let largest = argv[2];
+  let sLargest = argv[2];
+  let current;
+
+  // Find the FIRST-second largest integer
   for (let i = 2; i < argLen; i++) {
     if (argv[i] < sLargest) {
       sLargest = argv[i];
