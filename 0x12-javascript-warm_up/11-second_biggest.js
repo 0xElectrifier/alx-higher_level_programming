@@ -1,35 +1,20 @@
 #!/usr/bin/node
-const argc = process.argv.length;
-const argv = process.argv;
-let current, max, secondMax;
-if (argc < 4) {
-  secondMax = 0;
-  console.log(secondMax);
-  process.exit(1);
-}
 
-if (argv[3] > argv[2]) {
-  max = argv[3];
-  secondMax = argv[2];
-} else {
-  max = argv[2];
-  secondMax = argv[3];
-}
+function searchSecLargest (arr) {
+  let largest = argv[2];
+  let sLargest = argv[2];
+  const argLen = argv.length;
+  if (argLen < 4) sLargest = 0;
 
-max = parseInt(max);
-secondMax = parseInt(secondMax);
-for (let i = 4; i < argc; i++) {
-  current = parseInt(argv[i]);
-  if (current > max) {
-    if (secondMax < max) {
-      secondMax = max;
-      max = current;
-    }
-  } else if (current < max) {
-    if (current > secondMax) {
-      secondMax = current;
+  for (let i = 2; i < argLen; i++) {
+    if (argv[i] > largest) {
+      sLargest = largest;
+      largest = argv[i];
+    } else if (argv[i] > sLargest && argv[i] !== largest) {
+      sLargest = argv[i];
     }
   }
+  return (sLargest);
 }
-
-console.log(secondMax);
+const argv = process.argv;
+console.log(searchSecLargest(argv));
