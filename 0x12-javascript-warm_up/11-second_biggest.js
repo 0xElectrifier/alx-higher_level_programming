@@ -7,6 +7,12 @@ function searchSecLargest (arr) {
   const argLen = argv.length;
   if (argLen < 4) sLargest = 0;
 
+  // First, implicitely convert every element in the array into an integer
+  // Assuming that all elements can be converted into integers
+  for (let i = 2; i < argLen; i++) {
+    argv[i] = parseInt(argv[i]);
+  }
+
   // Find the FIRST second largest integer
   for (let i = 2; i < argLen; i++) {
     if (argv[i] < sLargest) {
