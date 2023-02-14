@@ -16,4 +16,4 @@ exports.esrever = function (list) {
     secondHalf--;
   }
   return (list);
-}
+};
