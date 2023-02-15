@@ -2,11 +2,11 @@
 const dictIn = require('./101-data.js').dict;
 const dictOut = {};
 
-for (let userId in dictIn) {
+for (const userId in dictIn) {
   const occur = dictIn[userId];
   // Avoid iterating an occurence repeatedly
   // if (dictOut.hasOwnProperty(occur)) continue;
-  if (!dictOut.hasOwnProperty(occur)) {
+  if (!Object.prototype.hasOwnProperty.call(dictOut, occur)) {
     dictOut[occur] = [];
   }
   dictOut[occur].push(userId);
