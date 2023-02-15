@@ -1,9 +1,11 @@
 #!/usr/bin/node
-
 const fs = require('fs');
-const file = process.argv[2];
-const string = process.argv[3];
+const argv = process.argv;
+const file = argv[2];
+const content = argv[3];
+// Quit script if third argument wasn't passed
+if (content === undefined) process.exit();
 
-fs.writeFile(file, string, 'utf-8', function (err) {
-  if (err) console.log(err);
+fs.writeFile(file, content, error => {
+  if (error) console.log(error);
 });
