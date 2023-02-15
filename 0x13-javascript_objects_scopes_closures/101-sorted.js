@@ -1,14 +1,14 @@
 #!/usr/bin/node
-const dictInput = require('./101-data').dict;
-const outDict = {};
+const dictIn = require('./101-data.js').dict;
+const dictOut = {};
 
-for (const key in dictInput) {
-  const ocurr = dictInput[key];
-  outDict[ocurr] = [];
-  for (const keys in dictInput) {
-    if (dictInput[keys] === ocurr) {
-      outDict[ocurr].push(keys);
-    }
+for (let userId in dictIn) {
+  const occur = dictIn[userId];
+  // Avoid iterating an occurence repeatedly
+  // if (dictOut.hasOwnProperty(occur)) continue;
+  if (!dictOut.hasOwnProperty(occur)) {
+    dictOut[occur] = [];
   }
+  dictOut[occur].push(userId);
 }
-console.log(outDict);
+console.log(dictOut);
