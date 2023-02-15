@@ -5,10 +5,10 @@ if (id === undefined) process.exit();
 
 const url = 'https://swapi-api.alx-tools.com/api/films/' + id;
 request(url, function (error, response, body) {
-  if (error) {
-    console.log(error);
-  } else if (response.statusCode === 200) {
+  if (response.statusCode === 200) {
     const jsonData = JSON.parse(body);
-    console.log(`${id} ${jsonData.title}`);
+    console.log(jsonData.title);
+  } else {
+    console.log(error);
   }
 });
