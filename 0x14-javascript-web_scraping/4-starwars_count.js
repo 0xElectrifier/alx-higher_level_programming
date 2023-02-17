@@ -12,7 +12,7 @@ const fetchFilms = function (error, response, body) {
   }
   if (response.statusCode === 200) {
     const responseJSON = JSON.parse(body);
-    if (responseJSON.characters.includes(character)) {
+    if (responseJSON.characters.includes('18')) {
       wedgeAntillesOccur++;
     }
     request(url + ++id, fetchFilms);
