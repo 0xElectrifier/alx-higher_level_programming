@@ -7,7 +7,7 @@ request(url, function (error, response, body) {
     console.log(error);
     process.exit();
   }
-  var tasksOccur = {};
+  const tasksOccur = {};
   if (response.statusCode === 200) {
     const todos = JSON.parse(body);
     for (const taskIndex in todos) {
@@ -26,28 +26,3 @@ request(url, function (error, response, body) {
   }
   console.log(tasksOccur);
 });
-
-/*
-let asyncFunc = async () => {
-  request(url, function (error, response, body) {
-    if (error) {
-      console.log(error);
-      process.exit();
-    }
-    if (response.statusCode === 200) {
-      const todos = JSON.parse(body);
-      const tasksOccur = {};
-      for (const taskIndex in todos) {
-        const userId = todos[taskIndex].userId;
-        if (!Object.prototype.hasOwnProperty(tasksOccur, userId)) {
-          tasksOccur[userId] = 1;
-        } else {
-          tasksOccur[userId] += 1;
-        }
-      }
-    }
-  });
-  await console.log(tasksOccur);
-}
-asyncFunc();
-*/
