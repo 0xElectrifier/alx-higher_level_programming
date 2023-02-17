@@ -1,25 +1,24 @@
 #!/usr/bin/node
-const request = require('request');
-const url = process.argv[2] + '/';
-// const character = 'https://swapi-api.alx-tools.com/api/people/18/';
-let id = 0;
-let wedgeAntillesOccur = 0;
 
-const fetchFilms = function (error, response, body) {
-  if (error) {
-    console.log(error);
-    process.exit();
-  }
-  if (response.statusCode === 200) {
-    const characters = JSON.parse(body).characters;
-    for (const charIndex in characters) {
-      if (characters[charIndex].includes('18')) {
-        wedgeAntillesOccur++;
+const request = require('request');
+const url = process.argv[2];
+
+request(url, function (err, response, body) {
+  if (err) {
+    console.log(err);
+  } else if (response.statusCode === 200) {
+    const films = JSON.parse(body).results;
+    let count = 0;
+    for (const filmIndex in films) {
+      const filmChars = films[filmIndex].characters;
+      for (const charIndex in filmChars) {
+        if (filmChars[charIndex].includes('18')) {
+          count++;
+        }
       }
     }
-    request(url + ++id, fetchFilms);
+    console.log(count);
   } else {
-    console.log(wedgeAntillesOccur);
+    console.log('An error occured. Status code: ' + response.statusCode);
   }
-};
-request(url + ++id, fetchFilms);
+});
