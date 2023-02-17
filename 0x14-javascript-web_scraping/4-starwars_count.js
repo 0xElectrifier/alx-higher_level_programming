@@ -1,6 +1,6 @@
 #!/usr/bin/node
 const request = require('request');
-const url = process.argv[2];
+const url = process.argv[2] + '/';
 const character = 'https://swapi-api.alx-tools.com/api/people/18/';
 let id = 0;
 let wedgeAntillesOccur = 0;
