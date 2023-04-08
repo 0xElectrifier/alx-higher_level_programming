@@ -1,3 +1,2 @@
-$('DIV#red_header').click(function () {
-  $('HEADER').css('color', '#FF0000');
-});
+let header_div = $('DIV#red_header');
+header_div.css('color', '#FF0000');
